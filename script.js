@@ -1,6 +1,6 @@
 // ========== IMGBB API CONFIGURATION ==========
 // Dapatkan API Key GRATIS di: https://api.imgbb.com/
-const IMGBB_API_KEY = 'YOUR_IMGBB_API_KEY'; // <-- GANTI INI DENGAN API KEY KAMU!
+const IMGBB_API_KEY = '326b8bd07f2650e3aedbe38698e29534'; // <-- GANTI INI DENGAN API KEY KAMU!
 
 // Particles Animation
 function createParticles() {
