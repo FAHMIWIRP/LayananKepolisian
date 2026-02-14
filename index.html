@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Pelayanan Kepolisian Digital</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Loader -->
+    <div id="loader">
+        <div class="loader-spinner"></div>
+    </div>
+
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+        <div class="particles" id="particles"></div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-yellow-400 rounded-full flex items-center justify-center">
+                    <i class="fas fa-shield-alt text-white text-xl"></i>
+                </div>
+                <span class="font-bold text-xl" style="font-family: 'Orbitron', sans-serif;">POLISI DIGITAL</span>
+            </div>
+            <div class="hidden md:flex space-x-6">
+                <a href="#home" class="hover:text-blue-400 transition">Beranda</a>
+                <a href="#layanan" class="hover:text-blue-400 transition">Layanan</a>
+                <a href="#form" class="hover:text-blue-400 transition">Formulir</a>
+                <a href="#faq" class="hover:text-blue-400 transition">FAQ</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="logo-container">
+                <i class="fas fa-shield-halved"></i>
+            </div>
+            <h1>Sistem Pelayanan Kepolisian Digital</h1>
+            <p>Layanan kepolisian modern, cepat, dan terpercaya untuk masyarakat Indonesia. Proses pengajuan dokumen yang mudah dan aman.</p>
+            <a href="#form" class="cta-btn">
+                <i class="fas fa-rocket mr-2"></i>Ajukan Pelayanan Sekarang
+            </a>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="container mx-auto px-4 py-20 reveal">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number" data-target="1250">0</div>
+                <div class="stat-label">Pelayanan Selesai</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-target="98">0</div>
+                <div class="stat-label">Kepuasan Pengguna (%)</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" data-target="24">0</div>
+                <div class="stat-label">Layanan 24/7 (Jam)</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="layanan" class="container mx-auto px-4 py-20 reveal">
+        <h2 class="section-title">Menu Regulasi & Layanan</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- SKCK Card -->
+            <div class="glass-card service-card" onclick="openModal('skck')">
+                <div class="service-icon">
+                    <i class="fas fa-id-card"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-3" style="font-family: 'Orbitron', sans-serif;">SKCK</h3>
+                <p class="text-gray-400">Surat Keterangan Catatan Kepolisian untuk berbagai keperluan resmi</p>
+            </div>
+
+            <!-- Lisensi Senjata Card -->
+            <div class="glass-card service-card" onclick="openModal('senjata')">
+                <div class="service-icon">
+                    <i class="fas fa-certificate"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-3" style="font-family: 'Orbitron', sans-serif;">Lisensi Senjata</h3>
+                <p class="text-gray-400">Izin kepemilikan dan penggunaan senjata api secara legal</p>
+            </div>
+
+            <!-- SIM Card -->
+            <div class="glass-card service-card" onclick="openModal('sim')">
+                <div class="service-icon">
+                    <i class="fas fa-car"></i>
+                </div>
+                <h3 class="text-2xl font-bold mb-3" style="font-family: 'Orbitron', sans-serif;">SIM A/B/C</h3>
+                <p class="text-gray-400">Surat Izin Mengemudi untuk berbagai jenis kendaraan</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Form Section -->
+    <section id="form" class="container mx-auto px-4 py-20 reveal">
+        <h2 class="section-title">Formulir Pelayanan Digital</h2>
+        <div class="max-w-2xl mx-auto">
+            <form id="serviceForm" class="glass-card">
+                <div class="flex items-center justify-center mb-6">
+                    <i class="fas fa-lock text-4xl text-yellow-400 mr-3"></i>
+                    <span class="text-sm text-gray-400">Data Anda Aman & Terenkripsi</span>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">
+                        <i class="fas fa-user mr-2"></i>Nama IC
+                    </label>
+                    <input type="text" class="form-input" id="namaIC" placeholder="Masukkan Nama IC" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">
+                        <i class="fas fa-user-tie mr-2"></i>Nama UCP
+                    </label>
+                    <input type="text" class="form-input" id="namaUCP" placeholder="Masukkan Nama UCP" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">
+                        <i class="fas fa-list mr-2"></i>Jenis Layanan
+                    </label>
+                    <select class="dropdown-select" id="jenisLayanan" required>
+                        <option value="">-- Pilih Jenis Layanan --</option>
+                        <option value="SKCK">SKCK (Surat Keterangan Catatan Kepolisian)</option>
+                        <option value="Lisensi Senjata Api">Lisensi Senjata Api</option>
+                        <option value="SIM A">SIM A (Mobil)</option>
+                        <option value="SIM B">SIM B (Kendaraan Umum)</option>
+                        <option value="SIM C">SIM C (Motor)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">
+                        <i class="fas fa-camera mr-2"></i>Upload Foto KTP
+                    </label>
+                    <div class="file-upload">
+                        <input type="file" id="fotoKTP" accept="image/jpeg,image/jpg,image/png" required onchange="previewImage(event)">
+                        <label for="fotoKTP" class="file-upload-label">
+                            <i class="fas fa-cloud-upload-alt text-3xl mb-2"></i>
+                            <p>Klik untuk upload foto KTP</p>
+                            <small class="text-gray-500">Format: JPG, PNG (Max 5MB)</small>
+                        </label>
+                    </div>
+                    <div class="image-preview" id="imagePreview">
+                        <img id="previewImg" src="" alt="Preview KTP">
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn" id="submitBtn">
+                    <i class="fas fa-paper-plane mr-2"></i>Kirim Pengajuan
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="container mx-auto px-4 py-20 reveal">
+        <h2 class="section-title">Pertanyaan Umum (FAQ)</h2>
+        <div class="max-w-3xl mx-auto">
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span><i class="fas fa-question-circle mr-3 text-blue-400"></i>Berapa lama proses pengajuan?</span>
+                    <i class="fas fa-chevron-down transition-transform"></i>
+                </div>
+                <div class="faq-answer">
+                    <p class="text-gray-400">Proses pengajuan biasanya memakan waktu 3-7 hari kerja setelah semua dokumen lengkap dan terverifikasi.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span><i class="fas fa-question-circle mr-3 text-blue-400"></i>Dokumen apa saja yang diperlukan?</span>
+                    <i class="fas fa-chevron-down transition-transform"></i>
+                </div>
+                <div class="faq-answer">
+                    <p class="text-gray-400">Anda memerlukan KTP asli, foto terbaru, dan dokumen pendukung lainnya sesuai jenis layanan yang diminta.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span><i class="fas fa-question-circle mr-3 text-blue-400"></i>Apakah data saya aman?</span>
+                    <i class="fas fa-chevron-down transition-transform"></i>
+                </div>
+                <div class="faq-answer">
+                    <p class="text-gray-400">Ya, semua data Anda dienkripsi dan dijaga kerahasiaannya sesuai standar keamanan nasional.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    <span><i class="fas fa-question-circle mr-3 text-blue-400"></i>Bagaimana cara tracking pengajuan saya?</span>
+                    <i class="fas fa-chevron-down transition-transform"></i>
+                </div>
+                <div class="faq-answer">
+                    <p class="text-gray-400">Setelah pengajuan, Anda akan menerima nomor tracking via WhatsApp untuk memantau status dokumen Anda.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4" style="font-family: 'Orbitron', sans-serif;">
+                        <i class="fas fa-shield-alt mr-2 text-blue-400"></i>MABES POLRI INDOSTATE
+                    </h3>
+                    <p class="text-gray-400">Melayani masyarakat dengan cepat, transparan, dan profesional.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4 text-yellow-400">
+                        <i class="far fa-clock mr-2"></i>Jadwal Operasional
+                    </h4>
+                    <div class="space-y-2 text-gray-300 text-sm">
+                        <div class="font-semibold text-blue-400 mb-2">Senin - Jumat</div>
+                        <div class="ml-3">
+                            <div>• Pagi - Sore: <span class="text-white">09:30 - 16:30 WIB</span></div>
+                            <div>• Malam: <span class="text-white">20:30 - 22:00 WIB</span></div>
+                        </div>
+                        <div class="font-semibold text-blue-400 mb-2 mt-3">Sabtu - Minggu</div>
+                        <div class="ml-3">
+                            <div>• Pagi - Sore: <span class="text-white">08:00 - 17:30 WIB</span></div>
+                            <div>• Malam: <span class="text-white">19:00 - 23:30 WIB</span></div>
+                        </div>
+                        <div class="mt-4 p-3 bg-red-500/10 border border-red-500/30 rounded-lg text-red-400 text-xs">
+                            <i class="fas fa-exclamation-triangle mr-1"></i>
+                            <strong>NOTE:</strong> Selain jam di atas kepolisian tidak akan melayani administrasi surat menyurat.
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4 text-yellow-400">Kontak</h4>
+                    <p class="text-gray-400 text-sm">
+                        <i class="fas fa-map-marker-alt mr-2"></i>Jl. Kepolisian No. 123, Jakarta<br><br>
+                        <i class="fas fa-phone mr-2"></i>+62 831-7056-4390<br><br>
+                        <i class="fas fa-envelope mr-2"></i>info@polisidigital.id
+                    </p>
+                </div>
+            </div>
+
+            <div class="text-center py-6 border-t border-gray-800">
+                <div class="social-icons mb-4">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+                <p class="text-gray-500 text-sm">&copy; 2025 Mabes Polri Indostate. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal SKCK -->
+    <div id="modalSKCK" class="modal">
+        <div class="modal-content">
+            <div class="modal-close" onclick="closeModal('skck')">
+                <i class="fas fa-times"></i>
+            </div>
+            <h2 class="text-3xl font-bold mb-4" style="font-family: 'Orbitron', sans-serif;">
+                <i class="fas fa-id-card mr-3 text-blue-400"></i>Regulasi SKCK
+            </h2>
+            <div class="space-y-4 text-gray-300">
+                <p><strong class="text-yellow-400">Persyaratan:</strong></p>
+                <ul class="list-disc list-inside space-y-2 ml-4">
+                    <li>Fotokopi KTP yang masih berlaku</li>
+                    <li>Fotokopi Kartu Keluarga</li>
+                    <li>Pas foto berwarna ukuran 4x6 (2 lembar)</li>
+                    <li>Akta kelahiran / Ijazah terakhir</li>
+                    <li>Sidik jari (dilakukan di tempat)</li>
+                </ul>
+                <p><strong class="text-yellow-400">Biaya:</strong> Rp 30.000,-</p>
+                <p><strong class="text-yellow-400">Waktu Proses:</strong> 3-5 hari kerja</p>
+                <p><strong class="text-yellow-400">Masa Berlaku:</strong> 6 bulan</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Senjata -->
+    <div id="modalSenjata" class="modal">
+        <div class="modal-content">
+            <div class="modal-close" onclick="closeModal('senjata')">
+                <i class="fas fa-times"></i>
+            </div>
+            <h2 class="text-3xl font-bold mb-4" style="font-family: 'Orbitron', sans-serif;">
+                <i class="fas fa-certificate mr-3 text-blue-400"></i>Regulasi Lisensi Senjata Api
+            </h2>
+            <div class="space-y-4 text-gray-300">
+                <p><strong class="text-yellow-400">Persyaratan:</strong></p>
+                <ul class="list-disc list-inside space-y-2 ml-4">
+                    <li>WNI berusia minimal 21 tahun</li>
+                    <li>Fotokopi KTP & Kartu Keluarga</li>
+                    <li>Surat keterangan sehat jasmani dan rohani</li>
+                    <li>SKCK yang masih berlaku</li>
+                    <li>Surat rekomendasi dari organisasi menembak</li>
+                    <li>Bukti kepemilikan senjata (jika perpanjangan)</li>
+                </ul>
+                <p><strong class="text-yellow-400">Biaya:</strong> Bervariasi sesuai jenis lisensi</p>
+                <p><strong class="text-yellow-400">Waktu Proses:</strong> 14-30 hari kerja</p>
+                <p><strong class="text-yellow-400">Masa Berlaku:</strong> 5 tahun</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal SIM -->
+    <div id="modalSIM" class="modal">
+        <div class="modal-content">
+            <div class="modal-close" onclick="closeModal('sim')">
+                <i class="fas fa-times"></i>
+            </div>
+            <h2 class="text-3xl font-bold mb-4" style="font-family: 'Orbitron', sans-serif;">
+                <i class="fas fa-car mr-3 text-blue-400"></i>Regulasi SIM A/B/C
+            </h2>
+            <div class="space-y-4 text-gray-300">
+                <p><strong class="text-yellow-400">Jenis SIM:</strong></p>
+                <ul class="list-disc list-inside space-y-2 ml-4">
+                    <li><strong>SIM A:</strong> Mobil penumpang & barang (usia min. 17 tahun)</li>
+                    <li><strong>SIM B:</strong> Kendaraan umum & barang (usia min. 20 tahun)</li>
+                    <li><strong>SIM C:</strong> Sepeda motor (usia min. 17 tahun)</li>
+                </ul>
+                <p><strong class="text-yellow-400">Persyaratan:</strong></p>
+                <ul class="list-disc list-inside space-y-2 ml-4">
+                    <li>Fotokopi KTP</li>
+                    <li>Surat keterangan sehat dari dokter</li>
+                    <li>Lulus tes teori dan praktik</li>
+                    <li>Pas foto berwarna 4x6 (3 lembar)</li>
+                </ul>
+                <p><strong class="text-yellow-400">Biaya:</strong> Rp 120.000,- (SIM baru)</p>
+                <p><strong class="text-yellow-400">Masa Berlaku:</strong> 5 tahun</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div id="notification" class="notification">
+        <i class="fas fa-check-circle mr-2"></i>
+        <span>Pengajuan berhasil! Mengarahkan ke WhatsApp...</span>
+    </div>
+
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
